@@ -1,0 +1,16 @@
+#define BUTTON_PIN 21 // GIOP21핀과 버튼이 연결되어 있음
+
+void setup() {
+  Serial.begin(9600);
+  // 푸시 버튼 핀을 풀업 입력으로 초기
+  // 스위치가 열리면 high 닫히면 low
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+}
+
+void loop() {
+  // 버튼의 상태를 읽음
+  int buttonState = digitalRead(BUTTON_PIN);
+
+  // 버튼 상태 출력
+  Serial.println(buttonState);
+}
