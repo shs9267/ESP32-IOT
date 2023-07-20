@@ -1,0 +1,20 @@
+#include <ezButton.h>
+
+#define DEBOUNCE_TIME 50 // the debounce time in millisecond, increase this time if it still chatters
+
+ezButton button(21); // Pin21 버튼을 설정
+
+void setup() {
+  Serial.begin(9600);
+  button.setDebounceTime(DEBOUNCE_TIME); // set debounce time to 50 milliseconds
+}
+
+void loop() {
+  button.loop(); // loop() 함수가 무조건 처음으로 호출되어야 함
+
+  if (button.isPressed())
+    Serial.println("The button is pressed");
+
+  if (button.isReleased())
+    Serial.println("The button is released");
+}
