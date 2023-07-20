@@ -1,0 +1,22 @@
+#define BUTTON_PIN 21 // GIOP21핀과 버튼이 연결되어 있음
+
+// 변수 변경
+int lastState = HIGH; // 입력 핀의 이전 상태
+int currentState;     // 현재 상태 정의
+
+void setup() {
+  Serial.begin(9600);
+  // 푸시 버튼 핀을 풀업 입력으로 초기
+  pinMode(BUTTON_PIN, INPUT_PULLUP);
+}
+
+void loop() {
+  // 버튼의 상태를 읽음
+  currentState = digitalRead(BUTTON_PIN);
+
+  if(lastState == LOW && currentState == HIGH)
+    Serial.println("The state changed from LOW to HIGH");
+
+  // 마지막 상태 저장
+  lastState = currentState;
+}
