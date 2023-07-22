@@ -1,0 +1,10 @@
+void setup() {
+  pinMode(18, OUTPUT);
+}
+
+void loop() {
+  digitalWrite(18, HIGH); // LED ON
+  delay(500);             
+  digitalWrite(18, LOW);  // LED OFF
+  delay(500);          
+}
